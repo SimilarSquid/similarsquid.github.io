@@ -5,6 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Invite | Consolify</title>
     <style>
+      :root {
+        --font-title: 2rem;
+        --font-code: 1.5rem;
+        --font-button: 1rem;
+        --font-platform: 1rem;
+        --code-padding-x: 1.5rem;
+        --code-padding-y: 1rem;
+        --copy-width: 5.5rem;
+      }
+
+      @media (max-width: 640px) {
+        :root {
+          --font-title: 1.5rem;
+          --font-code: 1.125rem;
+          --font-button: 0.75rem;
+          --font-platform: 0.75rem;
+          --code-padding-x: 1.125rem;
+          --code-padding-y: 0.75rem;
+          --copy-width: 4.125rem;
+        }
+      }
+
       *,
       *::before,
       *::after {
@@ -37,7 +59,7 @@
         align-items: center;
         height: 100vh;
         background: hsl(0 0 10);
-        background-image: linear-gradient(135deg, hsl(0 0 10), hsl(0 0 5));
+        background-image: linear-gradient(135deg, hsl(0 0% 10%), hsl(0 0% 5%));
         color: white;
       }
 
@@ -57,10 +79,12 @@
         justify-content: center;
         align-items: center;
         gap: 1rem;
+        padding: 1rem;
+        text-align: center;
       }
 
       #title {
-        font-size: 2rem;
+        font-size: var(--font-title);
       }
 
       #username {
@@ -71,28 +95,32 @@
         display: flex;
         justify-content: center;
         align-items: center;
-        gap: 1rem;
-        padding: 1rem 1.5rem;
-        background: hsl(0 0 20);
+        gap: var(--code-padding-y);
+        padding: var(--code-padding-y) var(--code-padding-x);
+        background: hsl(0 0% 20%);
         border-radius: 9999px;
-        text-align: center;
-        font-size: 2rem;
+        font-size: var(--font-code);
       }
 
       #copy-button {
         margin-right: -0.5rem;
-        width: 5.5rem;
+        width: var(--copy-width);
         padding: 0.5rem 0rem;
         background: hsl(120 100% 75%);
         color: black;
         border-radius: 9999px;
-        font-size: 1rem;
+        font-size: var(--font-button);
+      }
+
+      #platform {
+        font-size: var(--font-platform);
+        color: hsl(0, 0%, 80%);
       }
     </style>
   </head>
   <body>
     <div id="content">
-      <h1 class="title">
+      <h1 id="title">
         <span id="username">Loading...</span> &mdash; Friend Code
       </h1>
 
